@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MatrimonyModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="MatrimonyEntities">
+    <EntitySet Name="users" EntityType="MatrimonyModel.user" />
+    <EntitySet Name="Tokens" EntityType="MatrimonyModel.Token" />
+    <AssociationSet Name="FK_Token_ToUser" Association="MatrimonyModel.FK_Token_ToUser">
+      <End Role="user" EntitySet="users" />
+      <End Role="Token" EntitySet="Tokens" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="username" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="isactive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Tokens" Relationship="MatrimonyModel.FK_Token_ToUser" FromRole="user" ToRole="Token" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Tokenn" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+    <NavigationProperty Name="user" Relationship="MatrimonyModel.FK_Token_ToUser" FromRole="Token" ToRole="user" />
+  </EntityType>
+  <Association Name="FK_Token_ToUser">
+    <End Type="MatrimonyModel.user" Role="user" Multiplicity="1" />
+    <End Type="MatrimonyModel.Token" Role="Token" Multiplicity="*" />
+  </Association>
+</Schema>

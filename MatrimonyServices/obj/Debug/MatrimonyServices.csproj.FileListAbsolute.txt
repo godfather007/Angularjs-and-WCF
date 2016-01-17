@@ -1,0 +1,7 @@
+C:\Users\Abhay\Documents\Visual Studio 2012\Projects\Matrimony\MatrimonyServices\bin\MatrimonyServices.dll
+C:\Users\Abhay\Documents\Visual Studio 2012\Projects\Matrimony\MatrimonyServices\bin\MatrimonyServices.pdb
+C:\Users\Abhay\Documents\Visual Studio 2012\Projects\Matrimony\MatrimonyServices\bin\Newtonsoft.Json.dll
+C:\Users\Abhay\Documents\Visual Studio 2012\Projects\Matrimony\MatrimonyServices\bin\Newtonsoft.Json.xml
+C:\Users\Abhay\Documents\Visual Studio 2012\Projects\Matrimony\MatrimonyServices\obj\Debug\MatrimonyServices.dll
+C:\Users\Abhay\Documents\Visual Studio 2012\Projects\Matrimony\MatrimonyServices\obj\Debug\MatrimonyServices.pdb
+C:\Users\Abhay\Documents\Visual Studio 2012\Projects\Matrimony\MatrimonyServices\obj\Debug\MatrimonyServices.csprojResolveAssemblyReference.cache

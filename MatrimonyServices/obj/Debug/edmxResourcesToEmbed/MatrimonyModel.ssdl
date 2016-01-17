@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MatrimonyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MatrimonyModelStoreContainer">
+    <EntitySet Name="Token" EntityType="MatrimonyModel.Store.Token" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="user" EntityType="MatrimonyModel.Store.user" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Token_ToUser" Association="MatrimonyModel.Store.FK_Token_ToUser">
+      <End Role="user" EntitySet="user" />
+      <End Role="Token" EntitySet="Token" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Token" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="isactive" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Token_ToUser">
+    <End Role="user" Type="MatrimonyModel.Store.user" Multiplicity="1" />
+    <End Role="Token" Type="MatrimonyModel.Store.Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
